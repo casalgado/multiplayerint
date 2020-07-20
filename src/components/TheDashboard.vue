@@ -9,7 +9,7 @@
 <script>
 import TheField from "./TheField";
 import io from "socket.io-client";
-var socket = io.connect("http://localhost:4000");
+var socket = io();
 export default {
   name: "TheDashboard",
   components: {
