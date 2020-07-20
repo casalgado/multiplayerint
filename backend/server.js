@@ -6,10 +6,16 @@ const port = process.env.PORT || 4000;
 if (process.env.NODE_ENV === "production") {
   // Static Folder
   app.use(express.static(__dirname + "/public/"));
+
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
 }
 
-const server = app.listen(`${port}`, function() {
-  console.log(`Server started on port ${port}`);
+const server = app.listen(port, function() {
+  console.log(
+    "Express server listening on port %d in %s mode",
+    this.address().port,
+    app.settings.env
+  );
 });
 
 const io = require("socket.io")(server);
