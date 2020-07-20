@@ -5,7 +5,7 @@ const port = process.env.PORT || 4000;
 // Handle Production
 if (process.env.NODE_ENV === "production") {
   // Static Folder
-  app.use(express.static(__dirname + "/public/"));
+  app.use(express.static(__dirname + "/backend/public/"));
 
   app.get(/.*/, (req, res) => res.sendFile(__dirname + "/public/index.html"));
 }
@@ -57,7 +57,6 @@ io.on("connection", (socket) => {
 });
 
 setInterval(function() {
-  console.log(players);
   io.sockets.emit("state", players);
 }, 1000 / 60);
 
