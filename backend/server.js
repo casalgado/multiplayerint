@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
+
+// Handle Production
+if (process.env.NODE_ENV === "production") {
+  // Static Folder
+  app.use(express.static(__dirname + "/public/"));
+}
 
 const server = app.listen(`${port}`, function() {
   console.log(`Server started on port ${port}`);
