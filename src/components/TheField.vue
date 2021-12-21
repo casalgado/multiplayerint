@@ -39,8 +39,8 @@ export default {
     var canvas = document.getElementById("field");
     var ctx = canvas.getContext("2d");
     this.vueCanvas = ctx;
-    canvas.width = 800;
     canvas.height = 500;
+    canvas.width = 800;
     this.canvasWidth = canvas.width;
     this.canvasHeight = canvas.height;
   },
